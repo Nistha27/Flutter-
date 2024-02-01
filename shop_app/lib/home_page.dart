@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   
+  final List<String>filters  = const [
+    'All',
+    'Adidas',
+    'Nike',
+    'Puma'
+  ];
   @override
   Widget build(BuildContext context) {
     const border = OutlineInputBorder(
@@ -12,14 +18,14 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.horizontal(left: Radius.circular(50)),
                     
                     );
-    return Scaffold(
+    return  Scaffold(
       body:SafeArea(
         child: Column(
           children: [
             Row(
               children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
+             const Padding(
+                padding: EdgeInsets.all(20.0),
                 child: Text(
                   'Shoes\nCollection', 
                     style: TextStyle(
@@ -28,7 +34,7 @@ class HomePage extends StatelessWidget {
                     )
                   ),
                 ),
-                Expanded(child:
+                const Expanded(child:
                  TextField(
                   decoration: InputDecoration(
                     hintText: 'Search', 
@@ -39,11 +45,19 @@ class HomePage extends StatelessWidget {
                   ), 
                  )
                 ),
+                ListView.builder(
+                  itemCount : filters.length,
+                  itemBuilder: (context , index) {
+                    final filter = filters[index];
+                    return Chip(
+                      label: Text(filter),);
+                  },
+                )
               ],
             ) 
           ],
         ), 
      )
-   );
+   );  
  }
 }
