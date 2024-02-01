@@ -45,19 +45,4 @@ class HomePage extends StatelessWidget {
                   ), 
                  )
                 ),
-                ListView.builder(
-                  itemCount : filters.length,
-                  itemBuilder: (context , index) {
-                    final filter = filters[index];
-                    return Chip(
-                      label: Text(filter),);
-                  },
-                )
-              ],
-            ) 
-          ],
-        ), 
-     )
-   );  
- }
-}
+                
